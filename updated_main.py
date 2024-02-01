@@ -4,6 +4,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.tools import tool
 import os
 import streamlit as st
+import pyperclip
 from langchain.agents import load_tools
 from langchain.agents import initialize_agent
 from langchain.llms import OpenAI
@@ -27,8 +28,9 @@ else:
 tool_names = ["serpapi"]
 tools = load_tools(tool_names)
 #Defining and calling the langchain agent
-agent = initialize_agent(tools, llm1, agent="zero-shot-react-description", verbose=False)
+agent = initialize_agent(tools, llm1, agent="zero-shot-react-description", verbose=True)
 new=agent.run(user_input)
+st.write(new)
 #Defining prompt:
 prompt=f"""
 Your task is to create a new blog on the topic of {user_input} in about {no_words} words.\
@@ -48,6 +50,8 @@ else :
     st.write("\n")
     st.write(result)
     st.write("\n")
+    if st.button ("Copy"):
+        pyperclip.copy(result)
     #Documening chat history in a .txt file
     with open("Chat_history_Project.txt", "a") as file:
         file.write(f"User: {user_input}\n")

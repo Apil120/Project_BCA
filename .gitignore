@@ -121,6 +121,7 @@ celerybeat.pid
 *.txt
 # Environments
 .env
+app.py
 .venv
 test.py
 chatt_personl.py
