@@ -1,19 +1,20 @@
-from langchain.agents import initialize_agent, AgentType
+#Importing necessary libraries
+from langchain.agents import initialize_agent
 from langchain.memory import ConversationBufferMemory
-from langchain.chat_models import ChatOpenAI
-from dotenv import load_dotenv
 from langchain.tools import tool
-import requests
 import os
 import streamlit as st
 from langchain.agents import load_tools
 from langchain.agents import initialize_agent
 from langchain.llms import OpenAI
+#Getting API keys
 api_key = os.environ['OPENAI_API_KEY']
 serpapi=os.environ['SERPAPI_API_KEY']
+#Defining Title
 st.title("Blog Generator")
-llm1 = OpenAI()
+llm1 = OpenAI()#Choosing LLM
 
+#Asking for and formatting user input
 user_input = st.text_input("Enter a topic to create a blog on:")
 no_words = st.number_input("Enter the number of words you want in your blog:")
 no_words=int(no_words)
@@ -22,11 +23,13 @@ if no_words<0:
 else:
     pass
 
+#Calling and defining the langchian tools
 tool_names = ["serpapi"]
 tools = load_tools(tool_names)
-
+#Defining and calling the langchain agent
 agent = initialize_agent(tools, llm1, agent="zero-shot-react-description", verbose=False)
 new=agent.run(user_input)
+#Defining prompt:
 prompt=f"""
 Your task is to create a new blog on the topic of {user_input} in about {no_words} words.\
 DO NOT MAKE THE OUTPUT HAVE LESS WORDS THAN {no_words}.\    
@@ -45,7 +48,7 @@ else :
     st.write("\n")
     st.write(result)
     st.write("\n")
-    # st.write("Number of words:", len(result.content.split()))
+    #Documening chat history in a .txt file
     with open("Chat_history_Project.txt", "a") as file:
         file.write(f"User: {user_input}\n")
         file.write(f"AI: {result}\n\n")
