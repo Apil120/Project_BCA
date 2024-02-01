@@ -1,1 +1,1 @@
-Simple blog generator in python using Serpapi, langchain and Openai.
+Simple blog generator in python using DuckDuckGo, langchain and Openai.
