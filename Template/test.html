@@ -1,0 +1,52 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Generator</title>
+</head>
+<body>
+    <h1>Blog Generator</h1>
+    <form id="blogForm">
+        <label for="topic">Enter a topic:</label>
+        <input type="text" id="topic" name="topic" required>
+        <br>
+        <label for="num_words">Enter the number of words:</label>
+        <input type="number" id="num_words" name="num_words" required>
+        <br>
+        <button type="button" onclick="generateBlog()">Generate Blog</button>
+    </form>
+
+    <script>
+        async function generateBlog() {
+            // Get form data
+            var topic = document.getElementById("topic").value;
+            var numWords = document.getElementById("num_words").value;
+
+            // Create JSON object
+            var data = {
+                "topic": topic,
+                "num_words": parseInt(numWords)
+            };
+
+            try {
+                const response = await fetch('/generate_blog/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(result);
+                } else {
+                    console.error('Failed to generate blog');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

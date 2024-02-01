@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Report Generator | Home</title>
+
+    <style>
+        .main-container {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="section-one">
+            <div class="navbar">
+                <div class="navbar-lft">
+                    <!-- <img src="https://images.unsplash.com/photo-1682687221080-5cb261c645cb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""> -->
+                </div>
+                <div class="navbar-right">
+                    <nav>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="./documentation.txt">Documentation</a></li>
+
+                        <a href="./Chat_history_Project.txt">
+                            <input type="button" value="Chat History" id="toggle">
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="text">
+            <form>
+                <div class="input">
+                    <label for="userinput">Enter a topic:</label>
+                    <input type="text" list="options" id="userinput" placeholder="Enter a topic:" required>
+                </div>
+                <div class="select">
+                    <label for="sel-val">Select the type:</label>
+                    <select name="selection" id="sel-val" required>
+                        <option value="Simple" selected>Simple</option>
+                        <option value="Complex">Complex</option>
+                        <option value="Informative">Informative</option>
+                        <option value="Crucial">Crucial</option>
+                    </select>
+                </div>
+                <button class="" onclick="fetchDataForm()">
+                    Submit
+                </button>
+                <div class="result" id="result-container">
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        async function fetchDataForm() {
+            const userInput = document.getElementById("userinput").value;
+            const selection = document.getElementById("sel-val").value;
+
+            try {
+                const response = await fetch('/generate_blog/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        topic: userInput,
+                        num_words: 150,  // You may adjust this value as needed
+                    }),
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    displayResult(result.blog_result);
+                } else {
+                    console.error('Failed to generate blog');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        function displayResult(result) {
+            const resultContainer = document.getElementById("result-container");
+            resultContainer.innerHTML = `<p>${result}</p>`;
+        }
+    </script>
+
+</body>
+
+</html>
