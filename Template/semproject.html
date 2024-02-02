@@ -34,15 +34,15 @@
 
         <div class="first">
             <label for="title"><strong>Title:</strong></label>
-            <input type="text" id="title" name="title" placeholder="Enter Title">
+            <input type="text" id="title" name="title" placeholder="Enter Title" required>
         </div>
 
         <div class="second">
             <label for="word-numbers"><strong> Number of words:</strong></label>
-            <input type="number" id="word-numbers" name="word-numbers" placeholder="Enter Number of words">
+            <input type="number" id="word-numbers" name="word-numbers" placeholder="Enter Number of words" required>
         </div>
 
-        <button onclick="generateBlog()" class="btn">Generate blog!</button>
+        <button type="button" onclick="generateBlog()" class="btn">Generate blog!</button>
     </form>
 
     <!-- Display blog content -->
@@ -50,10 +50,19 @@
 
     <script>
         async function generateBlog() {
-            const title = document.getElementById('title').value;
-            const numWords = document.getElementById('word-numbers').value;
+            const title = document.getElementById('title').value.trim();
+            const numWords = document.getElementById('word-numbers').value.trim();
+
+            // Basic client-side validation
+            if (!title || !numWords || isNaN(numWords) || parseInt(numWords) <= 0) {
+                alert('Please enter valid values for the title and number of words.');
+                return;
+            }
 
             try {
+                // Provide feedback to the user that the blog is being generated
+                document.getElementById('blog-content').innerText = 'Generating blog...';
+
                 const response = await fetch('/generate_blog/', {
                     method: 'POST',
                     headers: {

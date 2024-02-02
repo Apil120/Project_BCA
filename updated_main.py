@@ -26,13 +26,10 @@ def get_input_data():
         raise ValueError("Invalid input format")
 
 # Run the blog generation process
-def generate_blog():
+def generate_blog(title, num_words):
     try:
-        # Retrieve input data
-        topic, num_words = get_input_data()
-
         # Running a search to get relevant information for the blog
-        search_result = search.run(topic)
+        search_result = search.run(title)
 
         # Calculating maximum words allowed
         max_words = num_words + 50
@@ -50,24 +47,21 @@ def generate_blog():
         Your response should be in JSON format.\
         Add the contents from as you seem fit.\
         DO NOT HALLUCINATE.
-        ##Topic:{topic}
+        ##Topic:{title}
         """
 
         # Generating blog using the Language Model
         result = llm1.invoke(prompt)
 
-        # Display the generated blog
-        print(result)
-
         # Documenting chat history in a .txt file
         with open("Chat_history_Project.txt", "a") as file:
-            file.write(f"User: {topic}\n")
+            file.write(f"User: {title}\n")
             file.write(f"Response: {result}\n\n")
 
         with open("responses.txt", "a") as file:
             file.write(f"Blog: {result}\n")
+
+        return result
     except Exception as e:
         print(f"Error: {e}")
-
-if __name__ == "__main__":
-    generate_blog()
+        return str(e)
