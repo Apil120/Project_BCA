@@ -46,10 +46,9 @@
     <script>
         async function generateBlog() {
             const title = document.getElementById('title').value.trim();
-            const numWords = document.getElementById('word-numbers').value.trim();
-
+            
             // Basic client-side validation
-            if (!title || !numWords || isNaN(numWords) || parseInt(numWords) <= 0) {
+            if (!title) {
                 alert('Please enter valid values for the title and number of words.');
                 return;
             }

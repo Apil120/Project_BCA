@@ -38,12 +38,15 @@ def generate_blog(title):
         Add the contents from as you seem fit.\
         DO NOT HALLUCINATE.
         If your response ends abruptly than display upto the last sentence.\
+            For example If your response is like this:
+            '........ And so that's how Computers work. Now'
+        Your response should be '........ And so that's how Computers work.\
         ##Topic:{title}
         """
 
         # Generating blog using the Language Model
         result = llm1.invoke(prompt)
-
+    
         # Documenting chat history in a .txt file
         with open("Chat_history_Project.txt", "a") as file:
             file.write(f"User: {title}\n")
