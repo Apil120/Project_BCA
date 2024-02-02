@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, HTTPException
-from fastapi.responses import JSONResponse, HTMLResponse, FileResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 import subprocess
@@ -8,22 +8,21 @@ import os
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
-
-# Mount the static files directory
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Templates
-templates = Jinja2Templates(directory="Template")  # Update this line to specify the correct template directory
+templates = Jinja2Templates(directory="Template")
+
 
 class BlogRequest(BaseModel):
     topic: str
     num_words: int
 
 python_path = sys.executable
-
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("semproject.html", {"request": request})
+
 
 @app.post("/generate_blog/")
 async def generate_blog(blog_request: BlogRequest):
@@ -39,17 +38,16 @@ async def generate_blog(blog_request: BlogRequest):
             blog_request.topic,
             str(blog_request.num_words),
         ]
-        # Running the command
-        result = subprocess.run(
-            command, capture_output=True, text=True, check=True
+        # Running the command asynchronously
+        process = await asyncio.create_subprocess_exec(
+            *command,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
         )
-        return {"blog_result": result.stdout}
+        # Wait for the process to finish
+        stdout, stderr = await process.communicate()
+        return {"blog_result": stdout.decode()}
     except subprocess.CalledProcessError as e:
         raise HTTPException(status_code=500, detail=f"Error executing script: {e}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {e}")
-
-# Serve the responses.txt file
-@app.get("/static/responses.txt", response_class=FileResponse)
-async def read_responses():
-    return FileResponse("responses.txt", media_type="text/plain")

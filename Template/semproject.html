@@ -16,8 +16,8 @@
                 <img src="https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png" alt="">
             </div>
             <ul>
-                <li><a href="semproject.html">Home</a></li>
-                <li><a href="about.html">About us</a></li>
+                <li><a href="@">Home</a></li>
+                <li><a href="about.html" target="_blank">About us</a></li>
                 <li><a href="https://github.com/Apil120/Project_BCA" target="_blank">Github</a></li>
                 <li><a href="contact.html" target="_blank">Contact Us</a></li>
             </ul>
@@ -71,19 +71,7 @@
             }
         }
 
-        async function checkForUpdates() {
-            try {
-                const response = await fetch('/static/responses.txt');
-                const text = await response.text();
-                document.getElementById('blog-content').innerText = text;
-            } catch (error) {
-                console.error('Error checking for updates:', error);
-            } finally {
-                setTimeout(checkForUpdates, 5000); // Check for updates every 5 seconds
-            }
-        }
-
-        checkForUpdates(); // Start checking for updates when the page loads
+        // Removed checkForUpdates function as it's not necessary in this workflow
     </script>   
 </body>
 
