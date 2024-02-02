@@ -1,8 +1,6 @@
-// Include this script in your JavaScript file or within the <script> tags in the HTML file
-
 async function copyToClipboard() {
-    // Fetch the content of responses.txt
-    const response = await fetch('/static/responses.txt');
+    // Fetch the content of responses.txt from the Template directory
+    const response = await fetch('static/responses.txt');
     const content = await response.text();
 
     // Check if the content is not empty
