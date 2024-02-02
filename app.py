@@ -5,8 +5,11 @@ from pydantic import BaseModel
 import subprocess
 import sys
 import os
+import asyncio
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Templates
 templates = Jinja2Templates(directory="Template")
@@ -17,13 +20,8 @@ class BlogRequest(BaseModel):
     num_words: int
 
 python_path = sys.executable
-@app.get("/", response_class=HTMLResponse)
-async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
 
-
-@app.post("/generate_blog/")
-async def generate_blog(blog_request: BlogRequest):
+async def run_updated_main(topic: str, num_words: int):
     try:
         # Getting the absolute path to the Python interpreter
         python_path = sys.executable
@@ -32,16 +30,32 @@ async def generate_blog(blog_request: BlogRequest):
         # Creating the command
         command = [
             python_path,
-            updateed_main.py,
-            blog_request.topic,
-            str(blog_request.num_words),
+            script_path,
+            topic,
+            str(num_words),
         ]
-        # Running the command
-        result = subprocess.run(
-            command, capture_output=True, text=True, check=True
+        # Running the command asynchronously
+        process = await asyncio.create_subprocess_exec(
+            *command,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
         )
-        return {"blog_result": result.stdout}
+        # Wait for the process to finish
+        stdout, stderr = await process.communicate()
+        return {"blog_result": stdout.decode()}
     except subprocess.CalledProcessError as e:
         raise HTTPException(status_code=500, detail=f"Error executing script: {e}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {e}")
+
+
+@app.get("/", response_class=HTMLResponse)
+async def read_root(request: Request):
+    return templates.TemplateResponse("semproject.html", {"request": request})
+
+
+@app.post("/generate_blog/")
+async def generate_blog(blog_request: BlogRequest):
+    result = await run_updated_main(blog_request.topic, blog_request.num_words)
+    return result
+

@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Slab:wght@300&display=swap');
+
+/* css reset */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    background-color: #0D1B2A;
+    font-size: 16px;
+    color: #E0E1DD;
+    font-family: 'Roboto Slab', serif;
+}
+
+/* navbar starts */
+.navbar {
+    background-color: #1B263B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+    padding: 0 3vw;
+    flex-wrap: wrap;
+}
+
+.navbar .logo{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .logo img{
+    height: 50px;
+    object-fit: cover;
+}
+
+.navbar ul {
+    overflow: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+}
+
+.navbar li {
+    list-style: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+    width: 125px;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: 0.8s;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #E0E1DD;
+}
+
+.navbar li:hover {
+    background-color: #778DA9;
+    transform: scale(0.9);
+}
+
+/* navbar ends */
+
+
+/* title starts */
+#main-title{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+    font-size: 3rem;
+    text-shadow: 2px 2px 8px black;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing : 0.25rem;
+}
+
+.separator{
+    height: 4px;
+    text-align: center;
+    width: 15%;
+    background: #E0E1DD;
+    margin: 0 auto;
+}
+
+
+/* title ends */
+
+
+/* details starts */
+
+.details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap : 20px;
+    border: 1px solid #E0E1DD;
+    width: 30vw;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 10px;
+}
+
+
+
+.details input, .details select{
+    width: 20vw;
+    border: 1px solid #E0E1DD;
+    outline: none;
+    padding: 7px;
+    border-radius: 10px;
+    display: block;
+    margin: 8px;
+}
+
+.details #main-detl{
+    align-self: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.details label{
+   align-self: flex-start;
+   position: relative;
+   left: 8px;
+}
+
+.details .third select{
+   width: 20vw;
+}
+
+.details .btn {
+   border-radius: 7px;
+   background-color: #415A77;
+   color: #E0E1DD;
+   border: 1px solid #E0E1DD;
+   width: 50%;
+   align-self: center;
+   padding: 8px 10px;
+   transition: .5s;
+}
+
+.details .btn:hover{
+    background-color: #1B263B;
+}
+
+
+
+/* details ends */
+
+
+/* responsiveness here */
+@media only screen and (max-width : 768px){
+    .navbar .logo{
+        flex-grow: 1;
+    }
+
+    .details{
+        width: 80%;
+}
+
+    .details input {
+        width: 100%;
+    }
+}
+#copyButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999; /* Ensure the button is above other elements */
+}
+
+#copyButton:hover {
+    background-color: #45a049;
+}

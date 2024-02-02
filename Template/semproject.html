@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Generator</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <!-- header starts here -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png" alt="">
+            </div>
+            <ul>
+                <li><a href="http://127.0.0.1:8000">Home</a></li>
+                <li><a href="static\about.html">About us</a></li>
+                <li><a href="https://github.com/Apil120/Project_BCA" target="_blank">Github</a></li>
+                <li><a href="contact.html" target="_blank">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- header ends here -->
+
+    <h1 id="main-title">Blog Generator</h1>
+    <div class="separator"></div>
+
+    <!-- Details gathering starts -->
+    <form action="#" method="post" class="details">
+        <p id="main-detl">Details to fill</p>
+
+        <div class="first">
+            <label for="title"><strong>Title:</strong></label>
+            <input type="text" id="title" name="title" placeholder="Enter Title">
+        </div>
+
+        <div class="second">
+            <label for="word-numbers"><strong> Number of words:</strong></label>
+            <input type="number" id="word-numbers" name="word-numbers" placeholder="Enter Number of words">
+        </div>
+
+        <button onclick="generateBlog()" class="btn">Generate blog!</button>
+    </form>
+
+    <!-- Display blog content -->
+    <div id="blog-content"></div>
+
+    <script>
+        async function generateBlog() {
+            const title = document.getElementById('title').value;
+            const numWords = document.getElementById('word-numbers').value;
+
+            try {
+                const response = await fetch('/generate_blog/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ topic: title, num_words: numWords }),
+                });
+
+                const result = await response.json();
+
+                // Display the generated blog content
+                document.getElementById('blog-content').innerText = result.blog_result;
+            } catch (error) {
+                console.error('Error generating blog:', error);
+            }
+        }
+
+        async function checkForUpdates() {
+            try {
+                const response = await fetch("Template\responses.txt");
+                const text = await response.text();
+                document.getElementById('blog-content').innerText = text;
+            } catch (error) {
+                console.error('Error checking for updates:', error);
+            } finally {
+                setTimeout(checkForUpdates, 5000); // Check for updates every 5 seconds
+            }
+        }
+
+        checkForUpdates(); // Start checking for updates when the page loads
+       
+    </script>
+     <!-- Adjust the path based on your project structure -->
+    <script src="static/script.js" defer></script>
+    <button id="copyButton" onclick="copyToClipboard()" class="copy-button">Copy to Clipboard</button>
+  </script>
+</body>
+
+</html>

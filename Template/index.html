@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Blog Generator | Home</title>
 
     <style>
@@ -29,9 +29,9 @@
                         <li><a href="./index.html">Home</a></li>
                         <li><a href="./about.html">About Us</a></li>
                         <li><a href="./contact.html">Contact</a></li>
-                        <li><a href="./Chat_history_Project.txt">Documentation</a></li>
+                        <li><a href="./Documentation.txt">Documentation</a></li>
 
-                        <a href="./Chat_history_Project.txt">
+                        <a href="/static/Chat_history_Project.txt">
                             <input type="button" value="Chat History" id="toggle">
                         </a>
 
@@ -45,14 +45,9 @@
                     <label for="userinput">Enter a topic:</label>
                     <input type="text" list="options" id="userinput" placeholder="Enter a topic:" required>
                 </div>
-                <div class="select">
-                    <label for="sel-val">Select the type:</label>
-                    <select name="selection" id="sel-val" required>
-                        <option value="Simple" selected>Simple</option>
-                        <option value="Complex">Complex</option>
-                        <option value="Informative">Informative</option>
-                        <option value="Crucial">Crucial</option>
-                    </select>
+                <div class="input">
+                    <label for="userinput">Enter the number of words:</label>
+                    <input type="number" list="options" id="userinput" placeholder="Enter the number of words:" required>
                 </div>
                 <button class="" onclick="fetchDataForm()">
                     Submit
@@ -77,7 +72,7 @@
                     },
                     body: JSON.stringify({
                         topic: userInput,
-                        num_words: 150,  // You may adjust this value as needed
+                        num_words: max_words,  
                     }),
                 });
 
