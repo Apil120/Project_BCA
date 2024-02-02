@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Slab:wght@300&display=swap');
+
+/* CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    background-color: #0D1B2A;
+    font-size: 16px;
+    color: #E0E1DD;
+    font-family: 'Roboto Slab', serif;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #1B263B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+    padding: 0 3vw;
+    flex-wrap: wrap;
+}
+
+
+.navbar .navbar-right nav {
+    overflow: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar .navbar-right nav li {
+    list-style: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+    width: 125px;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: 0.8s;
+}
+
+.navbar .navbar-right nav li a {
+    text-decoration: none;
+    color: #E0E1DD;
+}
+
+.navbar .navbar-right nav li:hover {
+    background-color: #778DA9;
+    transform: scale(0.9);
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+    .navbar .navbar-lft {
+        flex-grow: 1;
+    }
+}
+
+/* Content grid styling */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 2rem;
+}
+
+.udesh, .apil, .pritika {
+    background-color: #415A77;
+    color: #E0E1DD;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
+}
+
+.udesh .contimg img,
+.apil .contimg img,
+.pritika .contimg img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.udesh h1,
+.apil h1,
+.pritika h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Social icons styling */
+.udesh .contcontent i,
+.apil .contcontent i,
+.pritika .contcontent i {
+    font-size: 2rem;
+    margin-right: 10px;
+    color: #E0E1DD;
+}
+
+/* Additional styles for other elements can be added as needed */

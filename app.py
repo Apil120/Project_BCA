@@ -1,53 +1,47 @@
-from fastapi import FastAPI, Request, HTTPException
-from fastapi.responses import JSONResponse, HTMLResponse
-from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
-import subprocess
-import sys
-import os
+from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
+from pydantic import BaseModel
+import updated_main  # assuming updated_main.py contains the code for generating the blog
 
 app = FastAPI()
+
+# Mount the 'static' directory to serve static files like style.css and 1.css
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Templates
-templates = Jinja2Templates(directory="Template")
-
-
-class BlogRequest(BaseModel):
+class BlogInput(BaseModel):
     topic: str
     num_words: int
 
-python_path = sys.executable
 @app.get("/", response_class=HTMLResponse)
-async def read_root(request: Request):
-    return templates.TemplateResponse("semproject.html", {"request": request})
+def read_root():
+    return open('Template/semproject.html', 'r').read()
 
+@app.get("/about.html", response_class=HTMLResponse)
+def read_about():
+    return open('Template/about.html', 'r').read()
+
+@app.get("/contact.html", response_class=HTMLResponse)
+def read_contact():
+    return open('Template/contact.html', 'r').read()
+
+@app.get("/1.css", response_class=HTMLResponse)
+def read_css():
+    with open("static/1.css", "r") as css_file:
+        css_content = css_file.read()
+    return HTMLResponse(content=css_content, status_code=200)
 
 @app.post("/generate_blog/")
-async def generate_blog(blog_request: BlogRequest):
+async def generate_blog(data: BlogInput):
     try:
-        # Getting the absolute path to the Python interpreter
-        python_path = sys.executable
-        # Getting the absolute path to the current script
-        script_path = os.path.abspath("updated_main.py")
-        # Creating the command
-        command = [
-            python_path,
-            script_path,
-            blog_request.topic,
-            str(blog_request.num_words),
-        ]
-        # Running the command asynchronously
-        process = await asyncio.create_subprocess_exec(
-            *command,
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
-        )
-        # Wait for the process to finish
-        stdout, stderr = await process.communicate()
-        return {"blog_result": stdout.decode()}
-    except subprocess.CalledProcessError as e:
-        raise HTTPException(status_code=500, detail=f"Error executing script: {e}")
+        # Extracting values from the request body
+        title = data.topic
+        num_words = data.num_words
+
+        # Call the function from updated_main.py with the extracted values
+        blog_content = updated_main.generate_blog(title, num_words)
+
+        return {'blog_result': blog_content}
+
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Internal Server Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
