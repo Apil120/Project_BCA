@@ -1,11 +1,12 @@
 async function copyToClipboard() {
-    // Fetch the content of responses.txt from the Template directory
-    const response = await fetch('static/responses.txt');
+    console.log("Copy button clicked");
+    // Fetch the content of resp.txt from the Template directory
+    const response = await fetch('/Template/responses.txt');
     const content = await response.text();
 
     // Check if the content is not empty
     if (content.trim() !== "") {
-        // Create a temporary element (textarea) to display the content
+        // Create a temporary element (textarea) to hold the text
         var tempTextArea = document.createElement("textarea");
         tempTextArea.value = content;
 
@@ -25,7 +26,7 @@ async function copyToClipboard() {
         // You can add additional logic or feedback here, such as showing a tooltip or changing the button text
         alert("Text copied to clipboard!");
     } else {
-        // If the file is empty, you may want to provide feedback to the user
+        // If the file is empty, provide feedback to the user
         alert("File is empty. No content to copy!");
     }
 }

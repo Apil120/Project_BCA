@@ -16,8 +16,8 @@
                 <img src="https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png" alt="">
             </div>
             <ul>
-                <li><a href="http://127.0.0.1:8000">Home</a></li>
-                <li><a href="static\about.html">About us</a></li>
+                <li><a href="semproject.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
                 <li><a href="https://github.com/Apil120/Project_BCA" target="_blank">Github</a></li>
                 <li><a href="contact.html" target="_blank">Contact Us</a></li>
             </ul>
@@ -73,7 +73,7 @@
 
         async function checkForUpdates() {
             try {
-                const response = await fetch("Template\responses.txt");
+                const response = await fetch('/static/responses.txt');
                 const text = await response.text();
                 document.getElementById('blog-content').innerText = text;
             } catch (error) {
@@ -84,12 +84,7 @@
         }
 
         checkForUpdates(); // Start checking for updates when the page loads
-       
-    </script>
-     <!-- Adjust the path based on your project structure -->
-    <script src="static/script.js" defer></script>
-    <button id="copyButton" onclick="copyToClipboard()" class="copy-button">Copy to Clipboard</button>
-  </script>
+    </script>   
 </body>
 
 </html>
