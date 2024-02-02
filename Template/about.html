@@ -11,21 +11,88 @@
     <link rel="manifest" href="/site.webmanifest">
     <!-- <link rel="stylesheet" href="static/1.css"> -->
     <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            background-color: #0D1B2A;
+            font-size: 16px;
+            color: #E0E1DD;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .navbar {
+            background-color: #1B263B;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 10vh;
+            width: 100vw;
+            padding: 0 3vw;
+            flex-wrap: wrap;
+        }
+
+        .navbar .logo {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .navbar li {
+            list-style: none;
+            padding: 8px 10px;
+            border-radius: 10px;
+            width: 125px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: 0.8s;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: #E0E1DD;
+        }
+
+        .navbar li:hover {
+            background-color: #778DA9;
+            transform: scale(0.9);
+        }
+        .navbar{
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
        .content
     {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 33vh;
-    padding: 15vw 10vw;
+    padding: 10vw 10vw;
     gap: 2vw;
+    border-bottom: #0D1B2A;
 
 
     }
-    .content::after{
-        content: '';
-        border-bottom: 2px solid white;
-    }
+   
     .abutimg{
     border-radius: 50%;
     }
@@ -41,36 +108,24 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="navbar-lft">
-            <!-- <img src="https://images.unsplash.com/photo-1682687221080-5cb261c645cb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D"
-                alt=""> -->
-        </div>
-        <div class="navbar-right">
-            <nav>
-                <li><a href="semproject.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="documentation.txt">Documentation</a></li>
-            
-            </nav>
-        </div>
-    </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png" alt="">
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="about.html" target="_blank">About us</a></li>
+                <li><a href="https://github.com/Apil120/Project_BCA" target="_blank">Github</a></li>
+                <li><a href="contact.html" target="_blank">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="aboutbdy">
-        <div class="content">
-            <div class="abutimg">
-                <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/425386299_2105526849780962_4190547523056350728_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=3635dc&_nc_ohc=NxQ_TM53dP0AX8iG3RI&_nc_ht=scontent.fktm3-1.fna&oh=00_AfB3rRy_4wrukL-N2rr1_q-KoN3WobYJQLaT8Zt-G-V19g&oe=65C13DD3"
-                    alt="">
-            </div>
-            <div class="abouttext">
-                <h2>Udesh Regmi</h2>
-                <p>Udesh Regmi an IT enthusiast, interested in the field of Web Development is the API and documentation head of this project. He's currently enrolled in BCA course in Nepalaya College and along with Mr. Adhikari, he's an Intern at Ambition Guru. </p>
-            </div>
-        </div>
         <div class="content">
           
             <div class="abouttext">
-                <h2>Apil Adhikari</h2>
+                <h1>Apil Adhikari</h1>
                 <p>Apil Adhikari an IT enthusiast, interested in the field of Machine Learning and AI. Mr.Adhikari is currently doing his BCA from Nepalaya College and is enrolled in NextAI as an Intern.He is also the lead of this Project.</p>
             </div>
             <div class="abutimg">
@@ -80,12 +135,23 @@
         </div>
         <div class="content">
             <div class="abutimg">
-                <img src="https://i.ibb.co/RQ27f1T/123.jpg"
+                <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/425386299_2105526849780962_4190547523056350728_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=3635dc&_nc_ohc=NxQ_TM53dP0AX8iG3RI&_nc_ht=scontent.fktm3-1.fna&oh=00_AfB3rRy_4wrukL-N2rr1_q-KoN3WobYJQLaT8Zt-G-V19g&oe=65C13DD3"
                     alt="">
             </div>
             <div class="abouttext">
-                <h2>Pritika Nakarmi</h2>
+                <h1>Udesh Regmi</h1>
+                <p>Udesh Regmi an IT enthusiast, interested in the field of Web Development is the API and documentation head of this project. He's currently enrolled in BCA course in Nepalaya College and along with Mr. Adhikari, he's an Intern at Ambition Guru. </p>
+            </div>
+        </div>
+      
+        <div class="content">
+            <div class="abouttext">
+                <h1>Pritika Nakarmi</h1>
                 <p>Pritika Nakarmi  an IT enthusiast, interested in the field of Web Development is the frontend head  of this project.She's currently enrolled in BCA course in Nepalaya College along with Mr. Adhikari and Mr.Regmi.</p>
+            </div>
+            <div class="abutimg">
+                <img src="https://i.ibb.co/RQ27f1T/123.jpg"
+                    alt="">
             </div>
         </div>
     </div>

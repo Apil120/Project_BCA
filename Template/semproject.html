@@ -37,11 +37,6 @@
             <input type="text" id="title" name="title" placeholder="Enter Title" required>
         </div>
 
-        <div class="second">
-            <label for="word-numbers"><strong> Number of words:</strong></label>
-            <input type="number" id="word-numbers" name="word-numbers" placeholder="Enter Number of words" required>
-        </div>
-
         <button type="button" onclick="generateBlog()" class="btn">Generate blog!</button>
     </form>
 
@@ -68,7 +63,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ topic: title, num_words: numWords }),
+                    body: JSON.stringify({ topic: title}),
                 });
 
                 const result = await response.json();

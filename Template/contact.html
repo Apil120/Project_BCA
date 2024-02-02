@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,104 +9,177 @@
 
     <title>Blog Generator|Contact Us</title>
     <style>
-        .grid{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    gap: 2vw;
-    padding: 2vw;
-    text-align: center;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.contimg img{
-overflow: hidden;
-    width:300px;
-    height: 300px;
-    border: 2px solid white;
-    border-radius: 50%;
+        body,
+        html {
+            background-color: #0D1B2A;
+            font-size: 16px;
+            color: #E0E1DD;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .navbar {
+            background-color: #1B263B;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 10vh;
+            width: 100vw;
+            padding: 0 3vw;
+            flex-wrap: wrap;
+        }
+
+        .navbar .logo {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .navbar li {
+            list-style: none;
+            padding: 8px 10px;
+            border-radius: 10px;
+            width: 125px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: 0.8s;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: #E0E1DD;
+        }
+
+        .navbar li:hover {
+            background-color: #778DA9;
+            transform: scale(0.9);
+        }
+
+        .grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            gap: 2vw;
+            padding: 2vw;
+            text-align: center;
+        }
+
+        .contimg img {
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            border: 2px solid white;
+            border-radius: 50%;
 
 
-}
-.contform{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:black;
-    height: 70vh;
-    width: 80vw;
-    margin: auto;
-}
-.infocont{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    
-}
+        }
+
+        .contform {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            height: 70vh;
+            width: 80vw;
+            margin: auto;
+        }
+
+        .infocont {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            color: rgb(255, 255, 255);
+
+        }
     </style>
 </head>
+
 <body>
-    <div class="navbar">
-        <div class="navbar-lft">
-            <!-- <img src="https://images.unsplash.com/photo-1682687221080-5cb261c645cb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D"
-                alt=""> -->
-        </div>
-        <div class="navbar-right">
-            <nav>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about.html">About Us</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                
-                
-            </nav>
-        </div>
-    </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png" alt="">
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html" target="_blank">About us</a></li>
+                <li><a href="https://github.com/Apil120/Project_BCA" target="_blank">Github</a></li>
+                <li><a href="/contact.html" target="_blank">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+   
     <div class="grid">
         <div class="udesh">
             <div class="contimg">
-            <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/425386299_2105526849780962_4190547523056350728_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=3635dc&_nc_ohc=NxQ_TM53dP0AX8iG3RI&_nc_ht=scontent.fktm3-1.fna&oh=00_AfB3rRy_4wrukL-N2rr1_q-KoN3WobYJQLaT8Zt-G-V19g&oe=65C13DD3"  width ="318" height= "424" alt="Udesh photo here">
+                <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/425386299_2105526849780962_4190547523056350728_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=3635dc&_nc_ohc=NxQ_TM53dP0AX8iG3RI&_nc_ht=scontent.fktm3-1.fna&oh=00_AfB3rRy_4wrukL-N2rr1_q-KoN3WobYJQLaT8Zt-G-V19g&oe=65C13DD3"
+                    width="318" height="424" alt="Udesh photo here">
             </div>
-        <div class="contcontent">
-            <h1>Udesh Regmi</h1>
-      
-          
-            <a href="https://www.github.com/Udesh-Regmi"target="_blank"><i class='bx bxl-github'></i></a>
-            <a href="https://www.linkedin.com"target="_blank">  <i class='bx bxl-linkedin' ></i></a>
-            <a href="https://facebook.com"target="_blank"> <i class='bx bxl-facebook-circle' ></i></a>
-            <a href="https://www.instagram.com"target="_blank">  <i class='bx bxl-instagram' ></i></a>
+            <div class="contcontent">
+                <h1>Udesh Regmi</h1>
 
-        </div>
+
+                <a href="https://www.github.com/Udesh-Regmi" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com" target="_blank"> <i class='bx bxl-linkedin'></i></a>
+                <a href="https://facebook.com/udesh.regmi.3" target="_blank"> <i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com/udesh.regmi/" target="_blank"> <i class='bx bxl-instagram'></i></a>
+
+            </div>
         </div>
         <div class="apil">
             <div class="contimg">
-                <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/424937990_2105526669780980_2558414955182564270_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=ARE7YkvShywAX9KWm5E&_nc_ht=scontent.fktm3-1.fna&oh=00_AfA6nYjhtqpPOY3G-qv2_MkfGJDjUahj91pmeM4bpztTmw&oe=65C137EC" width ="318" height= "424"  alt="Apil photo here">
+                <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/424937990_2105526669780980_2558414955182564270_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=ARE7YkvShywAX9KWm5E&_nc_ht=scontent.fktm3-1.fna&oh=00_AfA6nYjhtqpPOY3G-qv2_MkfGJDjUahj91pmeM4bpztTmw&oe=65C137EC"
+                    width="318" height="424" alt="Apil photo here">
             </div>
             <div class="contcontent">
                 <h1>Apil Adhikari</h1>
-                <a href="https://github.com/Apil120" target="_blank">      <i class='bx bxl-github' ></i></a>
-                <a href="https://www.linkedin.com/in/apil-adhikari-4513b7279/"target="_blank">  <i class='bx bxl-linkedin' ></i></a>
-                <a href="https://www.facebook.com/apil.adhiikari"target="_blank"><i class='bx bxl-facebook-circle'></i></a>
-                <a href="https://www.instagram.com/definitelynotapil"target="_blank">  <i class='bx bxl-instagram' ></i></a>
+                <a href="https://github.com/Apil120" target="_blank"> <i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/apil-adhikari-4513b7279/" target="_blank"> <i
+                        class='bx bxl-linkedin'></i></a>
+                <a href="https://www.facebook.com/apil.adhiikari" target="_blank"><i
+                        class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com/definitelynotapil" target="_blank"> <i
+                        class='bx bxl-instagram'></i></a>
                 <a href="https://medium.com/@apilisadhikari" target="_blank"> <i class='bx bxl-medium'></i></a>
 
             </div>
         </div>
         <div class="pritika">
             <div class="contimg">
-                <img src="https://images.unsplash.com/photo-1706730949208-c99b056eb80b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <img src="https://images.unsplash.com/photo-1706730949208-c99b056eb80b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
+                    alt="">
             </div>
             <div class="contcontent">
                 <h1>Pritika Nakarmi</h1>
-                <a href="https://www.github.com"target="_blank">      <i class='bx bxl-github' ></i></a>
-                <a href="https://www.linkedin.com"target="_blank">  <i class='bx bxl-linkedin' ></i></a>
-                <a href="https://www.facebook.com"target="_blank"><i class='bx bxl-facebook-circle'></i></a>
-                <a href="https://www.instagram.com"target="_blank">  <i class='bx bxl-instagram' ></i></a>
-              
+                <a href="https://www.github.com" target="_blank"> <i class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com" target="_blank"> <i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com" target="_blank"> <i class='bx bxl-instagram'></i></a>
+
             </div>
         </div>
     </div>
 </body>
+
 </html>

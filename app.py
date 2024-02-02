@@ -11,7 +11,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 class BlogInput(BaseModel):
     topic: str
-    num_words: int
 
 @app.get("/", response_class=HTMLResponse)
 def read_root():
@@ -36,10 +35,9 @@ async def generate_blog(data: BlogInput):
     try:
         # Extracting values from the request body
         title = data.topic
-        num_words = data.num_words
 
         # Call the function from updated_main.py with the extracted values
-        blog_content = updated_main.generate_blog(title, num_words)
+        blog_content = updated_main.generate_blog(title)
 
         return {'blog_result': blog_content}
 
