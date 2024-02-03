@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Blog Generator</title>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -13,13 +17,15 @@
     <header>
         <nav class="navbar">
             <div class="logo">
+                <a href="semproject.html">
                 <img src="https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png" alt="">
+            </a>
             </div>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about.html" target="_blank">About us</a></li>
+                <li><a href="semproject.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
                 <li><a href="https://github.com/Apil120/Project_BCA" target="_blank">Github</a></li>
-                <li><a href="/contact.html" target="_blank">Contact Us</a></li>
+                <li><a href="contact.html" >Contact Us</a></li>
             </ul>
         </nav>
     </header>
@@ -49,7 +55,7 @@
             
             // Basic client-side validation
             if (!title) {
-                alert('Please enter valid values for the title and number of words.');
+                alert('Please enter valid values.');
                 return;
             }
 
