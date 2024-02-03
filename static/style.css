@@ -185,3 +185,16 @@ body,html{
 #copyButton:hover {
     background-color: #45a049;
 }
+/* This is for the blog content */
+#blog-content{
+    width: 60vw;
+    height: auto;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+    text-align: center;
+    text-wrap: wrap;
+
+}
