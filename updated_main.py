@@ -47,8 +47,8 @@ def generate_blog(title):
         with open("static/Chat_history_Project.txt", "a") as file:
             file.write(f"User: {title}\n")
             file.write(f"Response: {result}\n\n")
-     
-        
+        with open("static/responses.txt", "a") as file:
+            file.write(f"Response: {result}\n\n")
         return result#Returning the blog
     #Exception Handling
     except Exception as e:
