@@ -198,3 +198,23 @@ body,html{
     text-wrap: wrap;
 
 }
+.chat{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    background-color: #0D1B2A;
+    margin-bottom: 2vw;
+}
+.chat>button{
+    padding:  0.5vw 1vw;
+    color: #FFFFFF;
+    background-color: #0D1B2A;
+
+}
+.chat>button a{
+    text-decoration: none;
+    color: white;
+    background-color: #0D1B2A;
+}
