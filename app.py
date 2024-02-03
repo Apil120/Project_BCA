@@ -6,7 +6,7 @@ import updated_main  #Contains the code for generating the blog
 
 app = FastAPI()
 
-# Mount the 'static' directory to serve static files like style.css and 1.css
+# Mount the 'static' directory to serve static files like style.css
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 class BlogInput(BaseModel):

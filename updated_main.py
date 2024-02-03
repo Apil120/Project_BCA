@@ -44,13 +44,11 @@ def generate_blog(title):
         result = llm1.invoke(prompt, max_tokens=750)
 
         # Documenting chat history in a .txt file
-        with open("Chat_history_Project.txt", "a") as file:
+        with open("static/Chat_history_Project.txt", "a") as file:
             file.write(f"User: {title}\n")
             file.write(f"Response: {result}\n\n")
-        #Documenting resposne history in a .txt file
-        with open("responses.txt", "a") as file:
-            file.write(f"Blog: {result}\n")
-
+     
+        
         return result#Returning the blog
     #Exception Handling
     except Exception as e:
