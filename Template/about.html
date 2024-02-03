@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Generator|About Us</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="manifest" href="/site.webmanifest">
-    <!-- <link rel="stylesheet" href="static/1.css"> -->
     <style>
-         * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -74,36 +72,47 @@
             background-color: #778DA9;
             transform: scale(0.9);
         }
-        .navbar{
+
+        .navbar {
             position: fixed;
             top: 0;
             z-index: 1;
         }
+        .aboutbdy{
+            margin-top: 2vw;
+        }
 
-       .content
-    {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 33vh;
-    padding: 10vw 10vw;
-    gap: 2vw;
-    border-bottom: #0D1B2A;
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 33vh;
+            padding: 16vw 10vw;
+            width: 90vw;
+            margin: auto;
+            border-bottom: 2px solid rgb(182, 166, 166);
+            gap: 2vw;
+            font-size: 1.5vw;
+            gap: 2vw;
+        }
+        .abouttext{
+            display: flex;
+            flex-direction: column;
+            gap: 2vw;
+        }
 
+        .abutimg {
+            border-radius: 50%;
+        }
 
-    }
-   
-    .abutimg{
-    border-radius: 50%;
-    }
-    .abutimg img{
-    width: 144px;
-    height: 144px;
-        border-radius: 50%;
-        border: 2px solid white;
-        object-fit: cover;
-        object-position: center center;
-    } 
+        .abutimg img {
+            width: 20vw;
+            height: 20vw;
+            border-radius: 50%;
+            border: 2px solid white;
+            object-fit: cover;
+            object-position: center center;
+        }
     </style>
 </head>
 
@@ -111,22 +120,25 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png" alt="">
+                <a href="semproject.html">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png" alt="">
+                </a>
             </div>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="about.html" target="_blank">About us</a></li>
+                <li><a href="semproject.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
                 <li><a href="https://github.com/Apil120/Project_BCA" target="_blank">Github</a></li>
-                <li><a href="contact.html" target="_blank">Contact Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
     <div class="aboutbdy">
         <div class="content">
-          
+
             <div class="abouttext">
                 <h1>Apil Adhikari</h1>
-                <p>Apil Adhikari an IT enthusiast, interested in the field of Machine Learning and AI. Mr.Adhikari is currently doing his BCA from Nepalaya College and is enrolled in NextAI as an Intern.He handled the backend code and API for this project.He is also the lead of this Project.</p>
+                <p>
+                    Apil Adhikari, an enthusiastic IT professional with a strong interest in Machine Learning and AI, is making strides in both education and practical experience. Currently pursuing a Bachelor of Computer Applications (BCA) at Nepalaya College, Apil is concurrently gaining hands-on experience as an intern at NextAI, showcasing his commitment to bridging academic learning with real-world applications. As the lead of the project, Apil brings leadership to the forefront, steering the team toward success in their endeavors. His multifaceted engagement reflects a dedication to emerging technologies and a proactive approach to integrating theoretical knowledge with practical skills.</p>
             </div>
             <div class="abutimg">
                 <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t39.30808-6/424937990_2105526669780980_2558414955182564270_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=3635dc&_nc_ohc=ARE7YkvShywAX9KWm5E&_nc_ht=scontent.fktm3-1.fna&oh=00_AfA6nYjhtqpPOY3G-qv2_MkfGJDjUahj91pmeM4bpztTmw&oe=65C137EC"
@@ -140,18 +152,18 @@
             </div>
             <div class="abouttext">
                 <h1>Udesh Regmi</h1>
-                <p>Udesh Regmi an IT enthusiast, interested in the field of Web Development is the documentation head of this project.He was the one to giive us this concept of a blog generator. He's currently enrolled in BCA course in Nepalaya College and along with Mr. Adhikari, he's an Intern at Ambition Guru. </p>
+                <p>Udesh Regmi an IT enthusiast, interested in the field of Web Development is the API and documentation head of this project. He's currently enrolled in BCA course in Nepalaya College and along with Mr. Adhikari, he's an Intern at Ambition Guru. </p>
             </div>
         </div>
-      
+
         <div class="content">
             <div class="abouttext">
                 <h1>Pritika Nakarmi</h1>
-                <p>Pritika Nakarmi  an IT enthusiast, interested in the field of Web Development is the frontend head  of this project.She's currently enrolled in BCA course in Nepalaya College along with Mr. Adhikari and Mr.Regmi.</p>
+                <p>
+                    Pritika Nakarmi, an ardent IT enthusiast, directs her passion towards the realm of Web Development and serves as the Frontend Head of the current project. Concurrently enrolled in the BCA course at Nepalaya College alongside Mr. Adhikari and Mr. Regmi, Pritika showcases a commitment to academic excellence. As the project's Frontend Head, she plays a pivotal role in shaping the user interface and experience. Pritika's involvement highlights a dedication to honing skills in the dynamic field of web development, and her collaboration with fellow students suggests a collaborative and teamwork-oriented approach. With an eye for design and functionality, Pritika Nakarmi contributes to the project's success by combining theoretical knowledge with hands-on expertise.</p>
             </div>
             <div class="abutimg">
-                <img src="https://i.ibb.co/RQ27f1T/123.jpg"
-                    alt="">
+                <img src="https://i.ibb.co/RQ27f1T/123.jpg" alt="">
             </div>
         </div>
     </div>
